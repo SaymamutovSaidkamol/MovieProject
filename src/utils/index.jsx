@@ -11,3 +11,4 @@ export const Loading = () => {
 export const Suspense = ({ children }) => {
   return <React.Suspense fallback={<Loading />}>{children}</React.Suspense>;
 };
+
