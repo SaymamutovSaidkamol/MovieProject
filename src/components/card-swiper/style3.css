@@ -1,0 +1,76 @@
+/* Swiper container */
+.single-movie-swiper {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 40px 30px;
+  border: 1px solid black;
+
+}
+
+/* Individual slide */
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image in slide */
+.swiper-slide img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Swiper itself */
+.mySwipeCard {
+  width: 90%;
+  height: 400px;
+  z-index: 1;
+}
+
+
+.swiper-pagination-fraction {
+  font-size: 14px;
+  color: #C61F1F;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background: #1E1E1E;
+  padding: 4px 10px;
+  border-radius: 6px;
+  width: auto;
+  text-align: center;
+}
+
+
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: #1D1D1D;
+  color: #C61F1F;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.custom-prev {
+  left: 0px;
+}
+
+.custom-next {
+  right: 0px;
+}
