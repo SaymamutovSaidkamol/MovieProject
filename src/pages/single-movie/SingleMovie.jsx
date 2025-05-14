@@ -66,11 +66,14 @@ const SingleMovie = () => {
         </div>
       </div>
 
-      <div className="container mx-auto flex overflow-auto py-5  gap-2.5">
+
+      <div className="container mx-auto flex flex-col overflow-auto py-5  gap-2.5 mt-25">
+        <strong className="text-white text-4xl cursor-pointer hover:text-[#C61F1F]">Movie Stills</strong>
         <SingliMovieSwiper single={images}/>
       </div>
       
-      <div className="container mx-auto">
+      <div className="container mx-auto mt-25 flex flex-col gap-7">
+        <strong className="text-white text-4xl cursor-pointer hover:text-[#C61F1F]">Similar Movies</strong>
         <MovieView movies={similars?.results?.slice(0, 4)} />
       </div>
     </>
