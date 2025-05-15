@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 const MovieView = ({ movies }) => {
+  // console.log(movies);
 
   return (
     <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
