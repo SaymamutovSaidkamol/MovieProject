@@ -6,19 +6,22 @@ import CardSwiper from "@/components/card-swiper/CardSwiper";
 import Skeleton from "@/components/skeleton/Skeleton";
 
 const Home = () => {
-  const { data, error, loading } = useFetch("/discover/movie");
+  const { data, error, loading } = useFetch("/discover/movie", {skip: 8});
+
+  const slicedData = data?.results?.slice(9)
+  // console.log(slicedData);
+  
 
   return (
     <div>
-      <HomeSwaper movies={data?.results} />
-      {/* {loading && <Skeleton count={3}/>} */}
+      <HomeSwaper movies={slicedData  } />
       <div className="text-white container mx-auto flex justify-between mb-15px]">
         <div className="w-full flex justify-between px-8">
           <h1 className="text-[20px]">На неделе</h1>
           <h1 className="text-[20px] text-[#C61F1F]">{`Показать все >`}</h1>
         </div>
       </div>
-      <CardSwiper movies={data?.results} />
+      <CardSwiper movies={slicedData  } />
     </div>
   );
 };

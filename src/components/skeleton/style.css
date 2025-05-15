@@ -1,0 +1,11 @@
+.scelaton__animation {
+  background: linear-gradient(90deg, #eee, #b3b1b1, #eee);
+  background-size: 200%;
+  animation: skelaton 1s linear infinite;
+}
+
+@keyframes skelaton {
+  to {
+    background-position: 200%;
+  }
+}
