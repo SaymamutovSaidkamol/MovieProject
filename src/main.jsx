@@ -3,11 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { ContextProvider } from "./context/index.jsx";
+import { initialState, reducer } from "./context/reducer.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ContextProvider initialState={initialState} reducer={reducer}>
+        <App />
+      </ContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
