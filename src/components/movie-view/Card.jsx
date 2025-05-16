@@ -1,28 +1,51 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import { useContextValue } from "@/context";
 
 const Card = ({ item }) => {
-
-  const navigate = useNavigate()
+  const [state, dispatch] = useContextValue();
 
   const url = import.meta.env.VITE_IMAGE_URL;
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = url + item.poster_path;
+    img.onload = () => setIsLoaded(true);
+  }, [item.poster_path, url]);
+
+  const navigate = useNavigate();
+
   return (
-    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative">
-      <div className="overflow-hidden">
-        <img
-          src={url + item.poster_path}
-          alt={item.title}
-          className="rounded-[12px] mb-[12px] w-full h-ful transform transition-transform duration-500 hover:scale-105 h-[420px] hover:-translate-y-1l"
-          onClick={()=> navigate(`/movie/${item.id}`)}
-        />
+    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden">
+      <div
+        className="h-full w-full cursor-pointer relative"
+        style={{
+          backgroundImage: isLoaded ? `url(${url + item.poster_path})` : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        onClick={() => navigate(`/movie/${item.id}`)}
+      ></div>
+      <button
+        onClick={() => dispatch({ type: "SAVED_MOVIE", payload: item })}
+        className="top-[10px] left-0 p-2 absolute z-10"
+      >
+        {
+          state.saved.some(({id})=> id ===item.id)? (<FaBookmark className="  text-3xl text-[#C61F1F]" />) : (<FaRegBookmark className="  text-3xl text-white hover:text-[#C61F1F]" />)
+        }
+      </button>
+      <div className="absolute top-[10px] right-[10px] z-20 bg-[#ffff00] text-[#4D4D4D] text-[18px] font-bold px-2 rounded-[5px] flex items-center gap-1">
+        <FaStar className="text-[#b8a502]" />
+        <p>{item.vote_average}</p>
       </div>
-      <div className="flex flex-col items-start gap-3 px-3 py-3">
+      <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black/100 via-black/80 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 w-full px-4 py-5 z-20 flex flex-col gap-3">
         <h3 className="text-[24px] font-bold">{item.title}</h3>
-        <div className="flex gap-1 rounded-2xl items-center text-white py-1 px-1 font-bold text-[18px] bg-[#C61F1F] absolute top-[10px] right-[10px]">
-          <FaStar className="text-yellow-300" />
-          <p>{item.vote_average}</p>
-        </div>
+        <p className="text-[#4D4D4D] font-bold">{item.release_date}</p>
       </div>
     </div>
   );

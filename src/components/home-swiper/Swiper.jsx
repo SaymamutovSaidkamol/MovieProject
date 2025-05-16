@@ -33,7 +33,7 @@ export default function HomeSwaper({ movies }) {
   }, [swiperReady]);
 
   return (
-    <div className="header-swaper container mx-auto">
+    <div className="header-swaper container mx-auto"> 
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -46,8 +46,11 @@ export default function HomeSwaper({ movies }) {
       >
         {movies?.map((item) => (
           <SwiperSlide key={item.id}>
-            <img src={url + item.backdrop_path} className="transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1" />
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
+            <img
+              src={url + item.backdrop_path}
+              className="transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1"
+            />
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center w-full flex flex-col justify-center items-center">
               <h3 className="text-3xl">{item.original_title}</h3>
               <ul className="flex gap-2 justify-center mb-4 mt-4">
                 <li>{item.release_date}</li>
@@ -55,7 +58,7 @@ export default function HomeSwaper({ movies }) {
                 <li>EN</li>
                 <li>6+</li>
               </ul>
-              <div className="flex justify-center items-center gap-[10px] w-[380px] h-[52px] rounded-[12px] bg-white text-[#C61F1F] cursor-pointer">
+              <div className="flex justify-center items-center max-[700px]:w-[300px] max-[600px]:w-[150px]  gap-[10px] w-[380px] h-[52px] rounded-[12px] bg-white text-[#C61F1F] cursor-pointer">
                 <img
                   src={vector}
                   alt=""
@@ -80,12 +83,37 @@ export default function HomeSwaper({ movies }) {
           slidesPerView={4}
           freeMode={true}
           watchSlidesProgress={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            400: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+          }}
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper"
         >
           {movies?.map((item) => (
             <SwiperSlide key={item.id}>
-              <img src={url + item.backdrop_path} className="transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1" />
+              <img
+                src={url + item.backdrop_path}
+                className="transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -97,4 +125,3 @@ export default function HomeSwaper({ movies }) {
     </div>
   );
 }
-

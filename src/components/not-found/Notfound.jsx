@@ -11,11 +11,14 @@ const Notfound = () => {
         loop
         muted
         playsInline
-        className=""
+        className="w-full h-full object-cover"
       >
         <source src={NotFoundPage} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <p className="absolute top-[30%] left-1/2 transform -translate-x-1/2 text-[#4D4D4D] text-3xl font-bold border-black px-4">
+        Movie Not Found
+      </p>
     </div>
   );
 };

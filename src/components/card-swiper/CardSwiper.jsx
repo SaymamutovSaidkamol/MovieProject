@@ -48,21 +48,25 @@ export default function CardSwiper({ movies }) {
             swiper.params.navigation.nextEl = nextRef.current;
           }}
           breakpoints={{
-            320: {
-              // for mobile devices (320px - 480px)
+            0: {
               slidesPerView: 1,
+              spaceBetween: 10,
             },
-            480: {
-              // for tablets (480px - 768px)
-              slidesPerView: 2,
+            400: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
             },
             768: {
-              // for larger tablets (768px - 1024px)
-              slidesPerView: 3,
+              slidesPerView: 2,
+              spaceBetween: 40,
             },
             1024: {
-              // for desktops (1024px and above)
-              slidesPerView: 4,
+              slidesPerView: 3,
+              spaceBetween: 50,
             },
           }}
           modules={[Pagination, Navigation]}

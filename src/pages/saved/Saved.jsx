@@ -1,11 +1,15 @@
-import React from 'react'
+import MovieView from "@/components/movie-view/MovieView";
+import { useContextValue } from "@/context";
+import React from "react";
 
 const Saved = () => {
-  return (
-    <div className='text-white'>
-      Saved
-    </div>
-  )
-}
+  const [state, dispatch] = useContextValue();
 
-export default Saved
+  return (
+    <div className="text-white">
+      <MovieView movies={state.saved} />
+    </div>
+  );
+};
+
+export default Saved;
