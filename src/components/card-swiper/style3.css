@@ -7,7 +7,6 @@
   position: relative;
   padding: 40px 30px;
   border: 1px solid black;
-
 }
 
 /* Individual slide */
@@ -34,22 +33,20 @@
   z-index: 1;
 }
 
-
 .swiper-pagination-fraction {
   font-size: 14px;
-  color: #C61F1F;
+  color: #c61f1f;
   font-weight: bold;
   position: absolute;
-  bottom: 10px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  background: #1E1E1E;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1e1e;
   padding: 4px 10px;
   border-radius: 6px;
   width: auto;
   text-align: center;
 }
-
 
 .custom-prev,
 .custom-next {
@@ -61,8 +58,8 @@
   height: 60px;
   border: none;
   border-radius: 50%;
-  background-color: #1D1D1D;
-  color: #C61F1F;
+  background-color: #1d1d1d;
+  color: #c61f1f;
   font-size: 24px;
   cursor: pointer;
 }
