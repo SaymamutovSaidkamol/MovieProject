@@ -98,3 +98,10 @@
 .custom-next {
   right: 0px;
 }
+
+@media (max-width: 700px) {
+  .custom-prev,
+  .custom-next {
+    top: 25%; 
+  }
+}
