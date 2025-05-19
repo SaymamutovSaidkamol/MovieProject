@@ -1,18 +1,10 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import { FaAngleRight } from "react-icons/fa6";
-import { FaAngleLeft } from "react-icons/fa6";
-
-// Import Swiper styles
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./style3.css";
-
-// import required modules
 import { Pagination, Navigation } from "swiper/modules";
 
 export default function SingliMovieSwiper({ single }) {
@@ -21,6 +13,19 @@ export default function SingliMovieSwiper({ single }) {
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (img) => {
+    setSelectedImage(img);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -46,26 +51,11 @@ export default function SingliMovieSwiper({ single }) {
             swiper.params.navigation.nextEl = nextRef.current;
           }}
           breakpoints={{
-            0: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            400: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
+            0: { slidesPerView: 1, spaceBetween: 10 },
+            400: { slidesPerView: 1, spaceBetween: 10 },
+            640: { slidesPerView: 1, spaceBetween: 10 },
+            768: { slidesPerView: 2, spaceBetween: 10 },
+            1024: { slidesPerView: 3, spaceBetween: 10 },
           }}
           modules={[Pagination, Navigation]}
           className="mySwipeCard"
@@ -73,14 +63,45 @@ export default function SingliMovieSwiper({ single }) {
           {single?.backdrops?.map((image) => (
             <SwiperSlide key={image.file_path}>
               <img
-                className="w-[200px]  select-non rounded-t-2xl transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1"
+                className="w-[200px] cursor-pointer select-none rounded-t-2xl transform transition-transform duration-500 hover:scale-105 hover:-translate-y-1"
                 src={url + image.file_path}
                 alt=""
+                onClick={() => openModal(url + image.file_path)}
               />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+
+      {isOpen && selectedImage && (
+        <div
+          onClick={closeModal}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.9)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+            cursor: "pointer",
+          }}
+        >
+          <img
+            src={selectedImage}
+            alt="Fullscreen"
+            style={{
+              maxWidth: "90%",
+              maxHeight: "90%",
+              borderRadius: "10px",
+              boxShadow: "0 0 20px white",
+            }}
+          />
+        </div>
+      )}
     </>
   );
 }
