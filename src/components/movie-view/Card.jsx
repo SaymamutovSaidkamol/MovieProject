@@ -19,7 +19,7 @@ const Card = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden">
+    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden max-[700px]:w-[200px] max-[700px]:h-[250px]">
       <div
         className="h-full w-full cursor-pointer relative"
         style={{
@@ -32,19 +32,23 @@ const Card = ({ item }) => {
       ></div>
       <button
         onClick={() => dispatch({ type: "SAVED_MOVIE", payload: item })}
-        className="top-[10px] left-0 p-2 absolute z-10"
+        className="top-[10px] left-0 p-2 absolute z-10 "
       >
-        {
-          state.saved.some(({id})=> id ===item.id)? (<FaBookmark className="  text-3xl text-[#C61F1F]" />) : (<FaRegBookmark className="  text-3xl text-white hover:text-[#C61F1F]" />)
-        }
+        {state.saved.some(({ id }) => id === item.id) ? (
+          <FaBookmark className="  text-3xl text-[#C61F1F] max-[700px]:text-2xl" />
+        ) : (
+          <FaRegBookmark className="  text-3xl text-white max-[700px]:text-2xl hover:text-[#C61F1F]" />
+        )}
       </button>
-      <div className="absolute top-[10px] right-[10px] z-20 bg-[#ffff00] text-[#4D4D4D] text-[18px] font-bold px-2 rounded-[5px] flex items-center gap-1">
+      <div className="absolute top-[10px] right-[10px] z-20 bg-[#ffff00] text-[#4D4D4D] text-[18px] font-bold px-2 rounded-[5px] flex items-center gap-1 max-[700px]:text-[16px]">
         <FaStar className="text-[#b8a502]" />
         <p>{item.vote_average}</p>
       </div>
       <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black/100 via-black/80 to-transparent z-10" />
       <div className="absolute bottom-0 left-0 w-full px-4 py-5 z-20 flex flex-col gap-3">
-        <h3 className="text-[24px] font-bold">{item.title}</h3>
+        <h3 className="text-[24px] font-bold max-[700px]:text-[20px]">
+          {item.title}
+        </h3>
         <p className="text-[#4D4D4D] font-bold">{item.release_date}</p>
       </div>
     </div>
