@@ -28,14 +28,14 @@ const Card = ({ item }) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        onClick={() => navigate(`/movie/${item.id}`)}
+        onClick={() => navigate(`/${item.id}`)}
       ></div>
       <button
         onClick={() => dispatch({ type: "SAVED_MOVIE", payload: item })}
-        className="top-[10px] left-0 p-2 absolute z-10 "
+        className="top-[10px] left-0 p-2 absolute z-10 rounded-[50%] bg-[#b8b5b5]"
       >
         {state.saved.some(({ id }) => id === item.id) ? (
-          <FaBookmark className="  text-3xl text-[#C61F1F] max-[700px]:text-2xl" />
+          <FaBookmark className=" text-3xl text-[#C61F1F] max-[700px]:text-2xl" />
         ) : (
           <FaRegBookmark className="  text-3xl text-white max-[700px]:text-2xl hover:text-[#C61F1F]" />
         )}
