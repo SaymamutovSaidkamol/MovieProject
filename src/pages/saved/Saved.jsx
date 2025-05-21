@@ -6,7 +6,7 @@ const Saved = () => {
   const [state, dispatch] = useContextValue();
 
   return (
-    <div className="text-white">
+    <div className="text-white pt-10">
       <MovieView movies={state.saved} />
     </div>
   );
