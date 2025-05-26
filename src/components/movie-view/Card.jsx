@@ -19,7 +19,7 @@ const Card = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden max-[700px]:w-[150px] max-[700px]:h-[250px] ">
+    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden max-[700px]:w-[180px] max-[700px]:h-[270px] ">
       <div
         className="h-full w-full cursor-pointer relative"
         style={{
@@ -28,16 +28,16 @@ const Card = ({ item }) => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        onClick={() => navigate(`/${item.id}`)}
+        onClick={() => navigate(`/movie/${item.id}`)}
       ></div>
       <button
         onClick={() => dispatch({ type: "SAVED_MOVIE", payload: item })}
-        className="top-[10px] left-0 p-2 absolute z-10 rounded-[50%] bg-[#b8b5b5]"
+        className="top-[5px] left-1 p-2 absolute z-10 rounded-[50%] max-[700px]:text-[20px] bg-[#b8b5b5]"
       >
         {state.saved.some(({ id }) => id === item.id) ? (
-          <FaBookmark className=" text-3xl text-[#C61F1F] max-[700px]:text-2xl" />
+          <FaBookmark className=" text-3xl text-[#C61F1F] max-[700px]:text-[20px]" />
         ) : (
-          <FaRegBookmark className="  text-3xl text-white max-[700px]:text-2xl hover:text-[#C61F1F]" />
+          <FaRegBookmark className="  text-3xl text-white max-[700px]:text-[20px] hover:text-[#C61F1F]" />
         )}
       </button>
       <div className="absolute top-[10px] right-[10px] z-20 bg-[#ffff00] text-[#4D4D4D] text-[18px] font-bold px-2 rounded-[5px] flex items-center gap-1 max-[700px]:text-[16px]">
@@ -46,10 +46,10 @@ const Card = ({ item }) => {
       </div>
       <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black/100 via-black/80 to-transparent z-10" />
       <div className="absolute bottom-0 left-0 w-full px-4 py-5 z-20 flex flex-col gap-3">
-        <h3 className="text-[24px] font-bold max-[700px]:text-[20px]">
+        <h3 className="text-[24px] font-bold max-[700px]:text-[18px]">
           {item.title}
         </h3>
-        <p className="text-[#4D4D4D] font-bold">{item.release_date}</p>
+        <p className="text-[#4D4D4D] max-[700px]:text-[12px] font-bold">{item.release_date}</p>
       </div>
     </div>
   );

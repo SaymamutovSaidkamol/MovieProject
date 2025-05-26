@@ -6,6 +6,16 @@
   position: relative;
   padding: 40px 25px;
 }
+
+@media (max-width: 700px) {
+  .card-swiper{
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .card-swiper.swiper {
   width: 100%;
   height: 100%;
@@ -27,6 +37,7 @@
   display: flex;
   padding: 10px 0;
   border-radius: 12px;
+  padding-left: 15%;
 
 }
 
@@ -41,40 +52,40 @@
   width: 100%;
   height: 400px;
   margin: 20px auto;
+  
 }
 .card-swiper.append-buttons {
   text-align: center;
   margin-top: 20px;
+  
 }
 
 .card-swiper.append-buttons button {
   display: inline-block;
   cursor: pointer;
-  border: 1px solid #007aff;
   color: #007aff;
   text-decoration: none;
   padding: 4px 10px;
   border-radius: 4px;
   margin: 0 10px;
   font-size: 13px;
+  
 }
 
 .swiper-pagination-fraction {
   font-size: 14px;
-  color: #C61F1F;
+  color: #c61f1f;
   font-weight: bold;
   position: absolute;
-  bottom: 10px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  background: #1E1E1E;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1e1e;
   padding: 4px 10px;
   border-radius: 6px;
   width: auto;
   text-align: center;
 }
-
-
 .custom-prev,
 .custom-next {
   position: absolute;
@@ -83,12 +94,14 @@
   z-index: 10;
   width: 60px;
   height: 60px;
-  border: none;
   border-radius: 50%;
   background-color: #1d1d1d;
   color: #c61f1f;
   font-size: 24px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-prev {
@@ -102,6 +115,16 @@
 @media (max-width: 700px) {
   .custom-prev,
   .custom-next {
-    top: 25%; 
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .custom-prev {
+    left: 10px;
+  }
+
+  .custom-next {
+    right: 10px;
   }
 }
