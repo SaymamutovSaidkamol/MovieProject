@@ -6,7 +6,6 @@
   height: auto;
   position: relative;
   padding: 40px 30px;
-  border: 1px solid black;
 }
 
 /* Individual slide */
@@ -66,6 +65,30 @@
 
 .custom-prev {
   left: 0px;
+}
+
+
+@media (max-width: 700px) {
+  .custom-prev {
+    left: 0px;    
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+  .custom-next {
+    right: 0px;    
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .custom-next {

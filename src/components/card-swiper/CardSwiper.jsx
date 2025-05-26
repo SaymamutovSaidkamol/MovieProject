@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -70,7 +69,7 @@ export default function CardSwiper({ movies }) {
             },
           }}
           modules={[Pagination, Navigation]}
-          className="mySwipeCard border"
+          className="mySwipeCard"
         >
           {movies?.map((item) => (
             <SwiperSlide className="text-white">
