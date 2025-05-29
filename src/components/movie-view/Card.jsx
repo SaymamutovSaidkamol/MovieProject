@@ -19,7 +19,7 @@ const Card = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden max-[700px]:w-[180px] max-[700px]:h-[270px] ">
+    <div className="text-white rounded-[12px] mb-7 bg-[#1E1E1E] relative w-full h-[500px] overflow-hidden max-[700px]:w-[160px] max-[700px]:h-[270px] ">
       <div
         className="h-full w-full cursor-pointer relative"
         style={{
