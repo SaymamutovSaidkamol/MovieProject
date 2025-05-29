@@ -31,8 +31,8 @@ const SingleMovie = () => {
 
   return (
     <>
-      <div className=" px-5">
-        <div className="container mx-auto flex flex-col bg-[#1E1E1E] rounded-2xl text-white py-5 overflow-hidden">
+      <div className=" px-5 ">
+        <div className="container mx-auto flex flex-col bg-[#1E1E1E] mt-30 rounded-2xl text-white py-5  overflow-hidden border-red">
           <div className="w-full h-1/2  overflow-hidden">
             <Image
               src={url + data?.backdrop_path}

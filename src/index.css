@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body{
-    background: black;
+    /* background: black; */
 }
 
 .scrollbar-hide::-webkit-scrollbar {

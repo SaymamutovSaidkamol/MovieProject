@@ -17,8 +17,8 @@ const Home = () => {
       <HomeSwaper movies={slicedData  } />
       <div className="text-white container mx-auto flex justify-between mb-15px]">
         <div className="w-full flex justify-between px-8">
-          <h1 className="text-[20px]">На неделе</h1>
-          <h1 className="text-[20px] text-[#C61F1F]">{`Показать все >`}</h1>
+          <h1 className="text-[20px] max-[700px]:text-[15px]">На неделе</h1>
+          <h1 className="text-[20px] text-[#C61F1F] max-[700px]:text-[15px]">{`Показать все >`}</h1>
         </div>
       </div>
       <CardSwiper movies={slicedData  } />
